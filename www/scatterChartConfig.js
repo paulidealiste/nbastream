@@ -2,6 +2,11 @@ var chartFontColor = 'rgba(255, 255, 255, 0.9)';
 var chartGridColor = 'rgba(255, 255, 255, 0.4)';
 var chartZeroColor = 'rgba(255, 255, 255, 0.6)';
 
+var nbaRed = 'rgba(203, 7, 41, 0.9)';
+var nbaBlue = 'rgba(21, 65, 139, 0.9)';
+var nbaRedTransparent = 'rgba(203, 7, 41, 0.4)';
+var nbaBlueTransparent = 'rgba(21, 65, 139, 0.4)';
+
 var emptyData = {
   label: "Trenutno nema podataka",
   data: []

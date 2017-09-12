@@ -14,8 +14,9 @@ library(jsonlite)
 shinyServer(function(input, output, session) {
   observeEvent(
     input$render, {
-      # getInternalData()
-      session$sendCustomMessage(type="jsondata", generateRandoms())
+      pcaList <- performTeamPCA(getInternalData())
+      session$sendCustomMessage(type="jsondata", toJSON(pcaList$scores))
+      session$sendCustomMessage(type="jsoninfo", toJSON(pcaList$pcainfo))
     }
   )
 })

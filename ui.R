@@ -18,6 +18,7 @@ shinyUI(fluidPage(
     tags$script(src = "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"),
     tags$script(src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"),
     tags$script(src = "scatterChartConfig.js"),
+    tags$script(src = "radarChartConfig.js"),
     tags$script(src = "chartUI.js")
   ),
   
@@ -25,11 +26,18 @@ shinyUI(fluidPage(
   hr(),
   
   # Vizuelizacija
-  fluidRow(column(12,
-                  wellPanel(
-                    div(class = "chartUIholder",
-                        tags$canvas(id = "chartUI"))
-                  ))),
+  fluidRow(
+    column(8, style = "padding-right: 1px",
+           wellPanel(
+             div(class = "chartUIholder",
+                 tags$canvas(id = "chartUI"))
+           )),
+    column(4, style = "padding-left: 1px",
+           wellPanel(
+             div(class = "chartUIholder",
+                 tags$canvas(id = "radarUI"))
+           ))
+  ),
   
   # Kontrole
   fluidRow(column(12, wellPanel(
