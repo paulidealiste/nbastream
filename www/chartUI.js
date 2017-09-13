@@ -14,7 +14,6 @@ var renderScatterChart = function(scf) {
 }
 
 var renderRadarChart = function(rcf) {
-	console.log(rcf.options);
 	radarChart = new Chart(ctr, rcf);
 }
 

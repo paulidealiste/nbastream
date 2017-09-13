@@ -3,3 +3,28 @@
   height: 400px;
   position: relative;
 }
+
+label.control-label, .selectize-control.single {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+label.control-label {
+  padding-right: 10px;
+  padding-top: 0px !important;
+  line-height: 1 !important;
+}
+
+.form-group {
+  display: table-row;
+}
+
+.form-group select {
+  color: gray;
+  width: 80px !important;
+}
+
+.selectize-control.single div.item {
+  padding-right: 15px;
+}

@@ -9,7 +9,6 @@
 
 library(shiny)
 
-
 shinyUI(fluidPage(
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "nbastream.css"),
@@ -40,8 +39,17 @@ shinyUI(fluidPage(
   ),
   
   # Kontrole
-  fluidRow(column(12, wellPanel(
-    actionButton("render", "NBA", icon = icon("refresh"), class = "btn btn-primary")
-  )))
+  fluidRow(column(12,
+                  wellPanel(class = "row", style = "margin-left: 0px; margin-right: 0px",
+                    column(2,
+                           uiOutput("first_pc", class = "form-horizontal")
+                    ),
+                    column(2,
+                           uiOutput("second_pc", class = "form-horizontal")
+                    ),
+                    column(6,
+                           actionButton("render", "NBA", icon = icon("refresh"), class = "btn btn-primary btn-sm")
+                    )
+                  )))
   
 ))
