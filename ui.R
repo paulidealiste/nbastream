@@ -47,8 +47,10 @@ shinyUI(fluidPage(
                     column(2,
                            uiOutput("second_pc", class = "form-horizontal")
                     ),
-                    column(6,
-                           actionButton("render", "NBA", icon = icon("refresh"), class = "btn btn-primary btn-sm")
+                    column(6, style = "line-height: 2.3",
+                           radioButtons("radio", label = "Odabir performansi",
+                                        choices = list("Tim" = 1, "Protivnik" = 2), 
+                                        selected = 1, inline = TRUE)
                     )
                   )))
   

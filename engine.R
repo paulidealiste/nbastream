@@ -144,15 +144,15 @@ prepareDataFrame <- function(data) {
 # prcomp$rotation - df sa opterecenjima promenljivih
 # summary(prcomp) - df sa merom uticaja svake od glavnih komponenti
 
-performTeamPCA <- function(pgd) {
-  return (performPCA(pgd$tpg))
+performTeamPCA <- function(pgd, pcaChoice) {
+  return (performPCA(pgd$tpg, pcaChoice))
 }
 
 performOpponentPCA <- function(pgd) {
   return (performPCA(pgd$opg))
 }
 
-performPCA <- function(ogd) {
+performPCA <- function(ogd, pcaChoice) {
   pcaTeam <- prcomp(ogd, scale. = TRUE)
   teamOrder <- match(team, rownames(pcaTeam$x))
   
@@ -163,18 +163,18 @@ performPCA <- function(ogd) {
   
   return (list(
     scores = data.frame(
-      x = pcaScores[, 1],
-      y = pcaScores[, 2],
+      x = pcaScores[, pcaChoice$fpc],
+      y = pcaScores[, pcaChoice$spc],
       team = team,
       color = color,
       auxcolor = auxcolor
     ),
     pcainfo = list(
-      pcl = pcaLoadings,
-      pcva = pcaVarianceExplained,
-      pcc = pcaCorrelations,
+      pcl = pcaLoadings[,c(pcaChoice$fpc,pcaChoice$spc)],
+      pcva = pcaVarianceExplained[c(pcaChoice$fpc,pcaChoice$spc)],
+      pcc = pcaCorrelations[,c(pcaChoice$fpc,pcaChoice$spc)],
       varnames = rownames(pcaLoadings),
-      pcaNames = colnames(pcaLoadings)
+      pcaNames = colnames(pcaLoadings)[c(pcaChoice$fpc,pcaChoice$spc)]
     )
   ))
 }

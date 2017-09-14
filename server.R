@@ -6,18 +6,19 @@
 # 
 #    http://shiny.rstudio.com/
 #
-source("engine.R")
 library(shiny)
 library(jsonlite)
-pcaList <- reactive({})
+source("engine.R")
 
 # Osnovna funkcija serverske logike
 shinyServer(function(input, output, session) {
   
-  # Reaktivna promenljiva
+  # Reaktivne promenljive
+  
+  extractNum <- function(str) { return (as.numeric(gsub("[[:alpha:]]", "", str))) }
   
   pcaList <- reactive({
-    performTeamPCA(getInternalData())
+    performTeamPCA(getInternalData(), data.frame(fpc = extractNum(input$first_pc), spc = extractNum(input$second_pc)))
   })
   
   # Komunikacija sa javascript stranom - osluskivanje event-a izracunavanja PCA 
@@ -32,19 +33,13 @@ shinyServer(function(input, output, session) {
   
   output$first_pc <- renderUI(
     selectInput("first_pc", "Prva osa",
-                pcaList()$pcainfo$pcaNames,
+                c("PC1", "PC2", "PC3", "PC4", "PC5"),
                 selected = "PC1")
   )
   output$second_pc <- renderUI(
     selectInput("second_pc", "Druga osa", 
-                pcaList()$pcainfo$pcaNames,
+                c("PC1", "PC2", "PC3", "PC4", "PC5"),
                 selected = "PC2")
   )
-  
-  # Osluskivanje promene izabranih komonenti iz dropdown menija
-  
-  observeEvent(input$first_pc, {
-    print('ds')
-  })
   
 })

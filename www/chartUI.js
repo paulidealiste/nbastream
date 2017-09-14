@@ -32,10 +32,10 @@ var removeScatterData = function() {
 
 var addRadarData = function(data) {
 	radarChart.data.labels = data.varnames;
-	radarChart.data.datasets[0].label = "PC1";
-	radarChart.data.datasets[0].data = _.map(data.pcc, 'PC1');
-	radarChart.data.datasets[1].label = "PC2";
-	radarChart.data.datasets[1].data = _.map(data.pcc, 'PC2');
+	radarChart.data.datasets[0].label = data.pcaNames[0];
+	radarChart.data.datasets[0].data = _.map(data.pcc, data.pcaNames[0]);
+	radarChart.data.datasets[1].label = data.pcaNames[1];
+	radarChart.data.datasets[1].data = _.map(data.pcc, data.pcaNames[1]);
 	radarChart.update();
 }
 
@@ -85,5 +85,6 @@ var fillInPCAinfo = function(ginfo) {
 	_.first(scatterChart.options.scales.xAxes).scaleLabel.labelString = ginfo.pcaNames[0] + ' (' + ginfo.pcva[0] + '%)';
 	_.first(scatterChart.options.scales.yAxes).scaleLabel.labelString = ginfo.pcaNames[1] + ' (' + ginfo.pcva[1] + '%)';
 	scatterChart.update();
+	console.log(ginfo)
 	addRadarData(ginfo);
 }
