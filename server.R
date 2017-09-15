@@ -18,7 +18,7 @@ shinyServer(function(input, output, session) {
   extractNum <- function(str) { return (as.numeric(gsub("[[:alpha:]]", "", str))) }
   
   pcaList <- reactive({
-    performTeamPCA(getInternalData(), data.frame(fpc = extractNum(input$first_pc), spc = extractNum(input$second_pc)))
+    performPCAwrap(getInternalData(), data.frame(fpc = extractNum(input$first_pc), spc = extractNum(input$second_pc)), input$stats)
   })
   
   # Komunikacija sa javascript stranom - osluskivanje event-a izracunavanja PCA 

@@ -27,12 +27,12 @@ shinyUI(fluidPage(
   # Vizuelizacija
   fluidRow(
     column(8, style = "padding-right: 1px",
-           wellPanel(
+           wellPanel(style = "margin-bottom: 2px;",
              div(class = "chartUIholder",
                  tags$canvas(id = "chartUI"))
            )),
     column(4, style = "padding-left: 1px",
-           wellPanel(
+           wellPanel(style = "margin-bottom: 2px;",
              div(class = "chartUIholder",
                  tags$canvas(id = "radarUI"))
            ))
@@ -40,7 +40,7 @@ shinyUI(fluidPage(
   
   # Kontrole
   fluidRow(column(12,
-                  wellPanel(class = "row", style = "margin-left: 0px; margin-right: 0px",
+                  wellPanel(class = "row", style = "margin-left: 0px; margin-right: 0px; margin-bottom: 0;",
                     column(2,
                            uiOutput("first_pc", class = "form-horizontal")
                     ),
@@ -48,7 +48,7 @@ shinyUI(fluidPage(
                            uiOutput("second_pc", class = "form-horizontal")
                     ),
                     column(6, style = "line-height: 2.3",
-                           radioButtons("radio", label = "Odabir performansi",
+                           radioButtons("stats", label = "Odabir performansi",
                                         choices = list("Tim" = 1, "Protivnik" = 2), 
                                         selected = 1, inline = TRUE)
                     )

@@ -144,12 +144,13 @@ prepareDataFrame <- function(data) {
 # prcomp$rotation - df sa opterecenjima promenljivih
 # summary(prcomp) - df sa merom uticaja svake od glavnih komponenti
 
-performTeamPCA <- function(pgd, pcaChoice) {
-  return (performPCA(pgd$tpg, pcaChoice))
-}
-
-performOpponentPCA <- function(pgd) {
-  return (performPCA(pgd$opg))
+performPCAwrap <- function(pgd, pcaChoice, stats) {
+  if (stats == 1) {
+    return (performPCA(pgd$tpg, pcaChoice))
+  }
+  if (stats == 2) {
+    return (performPCA(pgd$opg, pcaChoice))
+  }
 }
 
 performPCA <- function(ogd, pcaChoice) {
