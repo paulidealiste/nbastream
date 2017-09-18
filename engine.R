@@ -1,5 +1,3 @@
-library(jsonlite)
-
 # Sortirani podaci o nazivima timova i njihovim zvanicnim bojama
 
 team <-

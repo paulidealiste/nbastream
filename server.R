@@ -1,11 +1,12 @@
 #
-# This is the server logic of a Shiny web application. You can run the 
-# application by clicking 'Run App' above.
+# Serverska logika Shiny aplikacije sadrzi osnovne analiticke funkcije
+# kao i source() pozive za dodatne .R datoteke. Aplikacija se moze pokrenuti klikom na 'Run App'.
 #
-# Find out more about building applications with Shiny here:
+# Saznajte vise o Shiny aplikacijama na:
 # 
 #    http://shiny.rstudio.com/
 #
+
 library(shiny)
 library(jsonlite)
 source("engine.R")

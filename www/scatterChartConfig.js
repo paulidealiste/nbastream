@@ -55,7 +55,7 @@ var scatterChartConfig = {
     },
     title: {
       display: true,
-      text: 'PCA napad/odbrana sezona 2016/17',
+      text: 'Glavne komponente tim/protivnik za sezonu 2016/17',
       fontColor: chartFontColor,
       fontSize: 14,
     },
