@@ -141,6 +141,8 @@ prepareDataFrame <- function(data) {
 # prcomp$x - df sa ocenama
 # prcomp$rotation - df sa opterecenjima promenljivih
 # summary(prcomp) - df sa merom uticaja svake od glavnih komponenti
+# pcaChoice - izbor glavnih komponenti (redni broj) iz padajućih menija
+# stats - izbor tipa performansi (tim ili protivnik)
 
 performPCAwrap <- function(pgd, pcaChoice, stats) {
   if (stats == 1) {
